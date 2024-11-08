@@ -28,7 +28,10 @@ def on_drop(event):
 
     if os.path.isfile(file_path):
         if(file_path[-3:] == "otf"):
-            font_path = file_path
+            abs_path = os.path.abspath(file_path)
+            label.config(text=f"Absolute Path:\n{abs_path}")
+            font_path = abs_path
+            messagebox.showinfo("Font Loaded", f"Font loaded from:\n{abs_path}")
         else:
             abs_path = os.path.abspath(file_path)
             label.config(text=f"Absolute Path:\n{abs_path}")
